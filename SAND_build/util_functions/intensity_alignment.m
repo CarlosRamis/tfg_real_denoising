@@ -9,8 +9,10 @@ function [raw_intensity_aligned, I] = intensity_alignment(images_raw)
     std_a = std(mean_i);%.*(length(mean_i)-1);
 
     % iii) Remove all images outside a 99.9% of confidence interval
+    
     [IC_low, IC_high] = confidence(mean_i, mean_a, std_a, 0);
-
+    % ENCONTRAR UN INTERVALO M·S GRANDE (10% de la media p.ex.)
+   
     new_mean_i = mean_i;
     new_mean_i(IC_high < new_mean_i) = -10;
     new_mean_i(IC_low > new_mean_i) = -10;

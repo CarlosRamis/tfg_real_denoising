@@ -28,4 +28,11 @@ ind_std_mean = intersect(twenty_i_mean,twenty_i_std);
 
 indices_defective = [i_indices,j_indices];
 
-save('MAT_FILES/indices_defective.mat','indices_defective')
+%save('MAT_FILES/indices_defective.mat','indices_defective')
+
+%% TSET
+
+[img_raw, img_rgb] = path_to_img('DatasetD3100/Scene_05/ISO100_Fn5.6_exp0.01_1.dng');
+image = interpolate_defective(img_raw, indices_defective);
+
+

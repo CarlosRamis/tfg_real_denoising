@@ -59,9 +59,6 @@ function [img_nlsrgb] = camerapipeline(img_raw, img_info)
     img_srgb = apply_cmatrix(img_rgb, cam2rgb);
     img_srgb = max(0,min(img_srgb,1));
 
-    %% TONE CURVE APPLICATION
-
-
     %% BRIGHTNESS & GAMMA CORRECTION
 
     img_gray = rgb2gray(img_srgb);
